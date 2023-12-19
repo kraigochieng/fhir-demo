@@ -2,7 +2,7 @@ import { PatientRegistrationForm } from "../components/forms/PatientRegistration
 
 export const PatientRegistration = () => {
 	return (
-		<div>
+		<div className="page">
 			<PatientRegistrationForm />
 		</div>
 	);

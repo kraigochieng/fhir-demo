@@ -1,0 +1,16 @@
+.dashboard-item-container {
+	padding: 10px;
+	border: solid 2px var(--dark-blue);
+	border-radius: 5px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	height: 100px;
+}
+
+.dashboard-item-container:hover {
+	background-color: var(--lightest-blue);
+}
+
+.dashboard-item-title {
+	color: var(--dark-blue);
+}

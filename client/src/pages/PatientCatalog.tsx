@@ -1,5 +1,5 @@
 import { SearchOutlined } from "@ant-design/icons";
-import { Button, Input } from "antd";
+import { Button, Flex, Input } from "antd";
 import { patientUrl } from "../urls";
 import { server } from "../axiosInstances";
 import { FhirPatient } from "../types/fhir/resources";
@@ -60,20 +60,24 @@ export default function PatientCatalog() {
 	}
 
 	return (
-		<>
-			<Input
-				onPressEnter={handleEnter}
-				onChange={(event) => handleChange(event)}
-				value={searchValue}
-			/>
-			<Button icon={<SearchOutlined />} onMouseUp={handleMouseUp} />
+		<div className="page">
+			<Flex gap="middle">
+				<Input
+					onPressEnter={handleEnter}
+					onChange={(event) => handleChange(event)}
+					value={searchValue}
+					placeholder="Search for patient using name"
+				/>
+				<Button icon={<SearchOutlined />} onMouseUp={handleMouseUp} />
+			</Flex>
 			<div id="searchResultBox" ref={searchResultBox}>
-				{patientSearchResults.map((patientSearchResult, index) => (
-					<div key={index}>
-						<PatientCatalogResult patient={patientSearchResult} />
-					</div>
-				))}
+				{patientSearchResults.length > 0 &&
+					patientSearchResults.map((patientSearchResult, index) => (
+						<div key={index}>
+							<PatientCatalogResult patient={patientSearchResult} />
+						</div>
+					))}
 			</div>
-		</>
+		</div>
 	);
 }

@@ -1,4 +1,22 @@
+* {
+	font-family: Arial, Helvetica, sans-serif;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--darkest-blue: #1b2d48;
+	--dark-blue: #2c456b;
+	--blue: #3c648f;
+	--light-blue: #4779c4;
+	--lightest-blue: #83aff0;
+}
 a {
 	color: black;
 	text-decoration: none;
+}
+
+.page {
+	padding: 5px;
 }

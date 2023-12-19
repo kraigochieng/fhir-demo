@@ -132,7 +132,7 @@ export default function PatientSummary() {
 	}, []);
 
 	return (
-		<div>
+		<div className="page">
 			<Link to="/catalog">Back To Catalog</Link>
 			{inProgressVisit ? (
 				<Button>Check out of visit</Button>
