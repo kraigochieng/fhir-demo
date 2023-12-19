@@ -19,7 +19,9 @@ export default function PatientCatalogResult(props: props) {
 				<p key={index}>Name: {name.text}</p>
 			))}
 			<p> Gender: {patient.gender}</p>
-			<p>Telephone Number: {patient.telecom}</p>
+			<p>
+				Telephone Number: {patient.telecom ? patient.telecom : "(Not provided)"}
+			</p>
 		</Link>
 	);
 }

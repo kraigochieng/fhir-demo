@@ -38,12 +38,12 @@ type FhirEncounterPeriod = {
 export type FhirEncounter = {
 	resourceType: "Encounter";
 	id?: string;
-	class: CodeableConceptType;
-	status: "finished" | "in-progress";
-	type: FhirValueCodeableConcept[];
+	class?: CodeableConceptType;
+	status?: "finished" | "in-progress";
+	type?: FhirValueCodeableConcept[];
 	subject?: FhirReference;
 	period: FhirEncounterPeriod;
-	partOf: FhirReference;
+	partOf?: FhirReference;
 };
 
 export type FhirValueCodeableConcept = {

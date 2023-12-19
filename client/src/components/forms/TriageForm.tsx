@@ -3,6 +3,7 @@ import { Input } from "antd";
 import {
 	baseUrl,
 	bundleUrl,
+	clientUrl,
 	encounterUrl,
 	loincUrl,
 	unitsOfMeasureUrl,
@@ -13,6 +14,9 @@ export default function TriageForm() {
 	const patientId = localStorage.getItem("patientId");
 	const inProgressVisitId = localStorage.getItem("inProgressVisitId");
 	const triageId = "urn:uuid:triageId";
+	const currentDate = new Date();
+	const isoCurrentDate = currentDate.toISOString();
+	localStorage.setItem("startingIsoCurrentDate", isoCurrentDate);
 
 	type TriageFormData = {
 		reasonForVisit: string;
@@ -49,7 +53,8 @@ export default function TriageForm() {
 							reference: `Patient/${patientId}`,
 						},
 						period: {
-							start: "2023-12-08T18:30:00+03:00",
+							start: isoCurrentDate,
+							end: isoCurrentDate,
 						},
 						type: [
 							{
@@ -304,7 +309,10 @@ export default function TriageForm() {
 		// POST Bundle
 		server
 			.post(baseUrl, fhirBundle)
-			.then((response) => console.log(response.data))
+			.then((response) => {
+				console.log(response.data);
+				window.location.href = `${clientUrl}/catalog/${patientId}`;
+			})
 			.catch((error) => console.error(error));
 	}
 

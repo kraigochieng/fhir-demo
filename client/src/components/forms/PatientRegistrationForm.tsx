@@ -2,7 +2,7 @@ import { DeleteOutlined } from "@ant-design/icons";
 import { Button, Form, Input, Radio, Select } from "antd";
 
 import { server } from "../../axiosInstances";
-import { snomedUrl, patientProfileUrl } from "../../urls";
+import { snomedUrl, patientProfileUrl, baseUrl, clientUrl } from "../../urls";
 import {
 	CodeableConceptType,
 	FhirContact,
@@ -260,6 +260,8 @@ export const PatientRegistrationForm = () => {
 				console.log(response.data);
 				const fhirPatientResponse: FhirPatient = response.data;
 				localStorage.setItem("patientId", fhirPatientResponse.id);
+				// Redirect to patient summary
+				window.location.href = `${clientUrl}/catalog/${fhirPatientResponse.id}`;
 			})
 			.catch((error) => {
 				console.error(error);
