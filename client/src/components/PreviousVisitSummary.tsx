@@ -6,8 +6,7 @@ type props = {
 };
 export default function PreviousVisitSummary(props: props) {
 	const { previousVisit } = props;
-	console.log("prev visit summary", previousVisit);
-
+	console.log(" rev visit summary");
 	const startDate = new Date(previousVisit.period.start);
 
 	const startDateYear = startDate.getFullYear();

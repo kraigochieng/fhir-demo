@@ -260,7 +260,7 @@ export const PatientRegistrationForm = () => {
 				console.log(response.data);
 				const fhirPatientResponse: FhirPatient = response.data;
 				localStorage.setItem("patientId", fhirPatientResponse.id);
-				// Redirect to patient summary
+
 				window.location.href = `${clientUrl}/catalog/${fhirPatientResponse.id}`;
 			})
 			.catch((error) => {
